@@ -65,7 +65,7 @@ typedef uint8_t bool;
 #define true 1
 #define false 0
 
-typedef struct  {
+typedef struct BootSector {
 
     uint8_t BootJumpInstruction[3];                    // "MSWIN4.1"
     uint8_t oem[8];                    // "MSWIN4.1"
@@ -89,7 +89,7 @@ typedef struct  {
     uint8_t volume_id[4];          // {0x12, 0x34, 0x56, 0x78}
     uint8_t volume_label[11];         // "Niraj OS   "
     uint8_t system_id[8];             // "FAT12   "
-} BootSector;
+}__attribute__((packed)) BootSector_g;
 
 // Initialize the boot sector
 // struct BootSector bs = {
@@ -128,7 +128,7 @@ BOOL ReadBootSector(FILE* disk){
 }
 
 
-BOOL ReadSector(FILE* disk, uint32_t lba, uint32_t count, void* bufferout){
+BOOL ReadSectors(FILE* disk, uint32_t lba, uint32_t count, void* bufferout){
     bool ok = true;
 
 
