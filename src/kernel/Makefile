@@ -1,12 +1,11 @@
-ASM? = nasm
 BUILD_DIR?=build/
+ASM?=nasm
 
+.PHONY: all kernel clean
 
-.PHONY = all clean srage2
+all: kernel
 
-all:stage2
-
-kerne1: $(BUILD_DIR)/kerne1.bin
+kernel: $(BUILD_DIR)/kernel.bin
 
 $(BUILD_DIR)/kernel.bin:
 	$(ASM) main.asm -f bin -o $(BUILD_DIR)/kernel.bin
