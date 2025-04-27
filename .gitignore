@@ -2,3 +2,4 @@
 
 .vscode/settings.json
 test.txt
+src/bootloader/stage2/main.err
