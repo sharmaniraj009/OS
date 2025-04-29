@@ -9,7 +9,7 @@ Welcome to the Operating System project repository. This project is focused on u
 ## Getting Started
 
 ### Prerequisites
-- gcc, nasm, qemu, linux-based OS
+- gcc, nasm, qemu, linux-based OS, open-watcom
 - Make 
 - Basic understanding of operating system concepts
 
