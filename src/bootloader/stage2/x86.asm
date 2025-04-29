@@ -6,8 +6,8 @@ section _TEXT class=CODE
 ;void _cdecl x86_div64_32(uint64_t dividend, uint32_t divisor, uint64_t* quoOut, uint32_t* remainderOut);
 ;
 
-global x86_div64_32
-x86_div64_32:
+global _x86_div64_32
+_x86_div64_32:
     push bp             ; save old call frame
     mov bp, sp
 
