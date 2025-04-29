@@ -3,6 +3,42 @@ bits 16
 section _TEXT class=CODE
 
 ;
+;void _cdecl x86_div64_32(uint64_t dividend, uint32_t divisor, uint64_t* quoOut, uint32_t* remainderOut);
+;
+
+global x86_div64_32
+x86_div64_32:
+    push bp             ; save old call frame
+    mov bp, sp
+
+    push bx
+
+    mov eax, [bp + 4]
+    mov ecx, [bp + 12]
+    xor edx, edx
+    div ecx
+    
+    
+    mov bx, [bx + 16]
+    mov [bx + 4], eax 
+
+
+    mov eax, [bp + 4]
+
+    div ecx
+    
+    
+    mov [bx], eax
+    mov bx, [bp + 18]
+    mov [bx], edx
+
+    mov sp, bp
+    pop bp
+    ret
+
+
+
+;
 ; int 10h ah=0Eh
 ; args: character, page
 ;
